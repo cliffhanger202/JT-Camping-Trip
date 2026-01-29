@@ -547,7 +547,11 @@ body {
         padding: 3rem 0;
     }
 
-    .details-grid,
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
     .activities-grid,
     .packing-grid {
         gap: 1.5rem;
@@ -596,5 +600,9 @@ body {
 
     .activity-icon {
         font-size: 2.5rem;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
     }
 }
