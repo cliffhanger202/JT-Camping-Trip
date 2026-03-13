@@ -1,3 +1,40 @@
+// Check authentication on page load
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('authenticated') === 'true') {
+        showMainContent();
+    } else {
+        showLogin();
+    }
+});
+
+function showMainContent() {
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+}
+
+function showLogin() {
+    document.getElementById('login-section').style.display = 'flex';
+    document.getElementById('main-content').style.display = 'none';
+}
+
+// Login button handler
+document.getElementById('login-button').addEventListener('click', function() {
+    const password = document.getElementById('password-input').value;
+    if (password === 'DesertLife') {
+        localStorage.setItem('authenticated', 'true');
+        showMainContent();
+    } else {
+        document.getElementById('error-message').style.display = 'block';
+    }
+});
+
+// Allow enter key to submit password
+document.getElementById('password-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        document.getElementById('login-button').click();
+    }
+});
+
 // Shooting stars on image hover
 const heroImage = document.querySelector('.hero-illustration');
 
@@ -39,18 +76,22 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
-    const experience = document.getElementById('experience').value;
+    const arrivalTime = document.getElementById('arrivalTime').value;
+    const additionalCampers = parseInt(document.getElementById('additionalCampers').value);
     const dietary = document.getElementById('dietary').value;
-    const message = document.getElementById('message').value;
     
-    // Get selected activities
-    const activities = [];
-    document.querySelectorAll('input[name="activities"]:checked').forEach(checkbox => {
-        activities.push(checkbox.value);
-    });
+    // Get additional campers
+    const campers = [];
+    for (let i = 1; i <= additionalCampers; i++) {
+        const camperName = document.getElementById(`camper${i}Name`).value;
+        const camperAge = document.getElementById(`camper${i}Age`).value;
+        if (camperName && camperAge) {
+            campers.push({ name: camperName, age: parseInt(camperAge) });
+        }
+    }
     
     // Validate form
-    if (!name || !email || !experience) {
+    if (!name || !email) {
         alert('Please fill in all required fields');
         return;
     }
@@ -60,10 +101,10 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         name: name,
         email: email,
         phone: phone,
-        experience: experience,
-        activities: activities,
+        arrivalTime: arrivalTime,
+        additionalCampers: additionalCampers,
+        campers: campers,
         dietary: dietary,
-        message: message,
         registrationDate: new Date().toLocaleString()
     };
     
@@ -77,9 +118,26 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     
     // Reset form
     this.reset();
+    // Hide all camper fields
+    for (let i = 1; i <= 5; i++) {
+        document.getElementById(`camper${i}`).style.display = 'none';
+    }
     
     // Log to console (in production, this would send to a server)
     console.log('Registration data:', registrationData);
+});
+
+// Handle additional campers selection
+document.getElementById('additionalCampers').addEventListener('change', function() {
+    const numCampers = parseInt(this.value);
+    for (let i = 1; i <= 5; i++) {
+        const camperDiv = document.getElementById(`camper${i}`);
+        if (i <= numCampers) {
+            camperDiv.style.display = 'block';
+        } else {
+            camperDiv.style.display = 'none';
+        }
+    }
 });
 
 function showSuccessMessage(email) {

@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">🏜️ JT Trip</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#details">Details</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#packing">Packing</a></li>
-                <li><a href="#register">Register</a></li>
-            </ul>
+    <!-- Login Section -->
+    <div id="login-section" class="login-section">
+        <div class="login-container">
+            <h1>🏜️ Joshua Tree Trip</h1>
+            <p>Enter the password to access the site:</p>
+            <input type="password" id="password-input" placeholder="Password">
+            <button id="login-button">Enter</button>
+            <p id="error-message" style="color: red; display: none;">Incorrect password. Please try again.</p>
         </div>
-    </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" style="display: none;">
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -73,7 +73,7 @@
 
             <!-- Description -->
             <div class="description">
-                <h3>About the Trip</h3>
+                <h3>Trip Information</h3>
                 <p>Join a bunch of dads and sons (and grandads) for an epic camping weekend in Joshua Tree National Park. Enjoy nights under the endless stars and days adventuring with your boys and other men. Come Thursday night or whenever you can make it Friday or Saturday.</p>
                 <p>Registration cost includes the cost of the campsites, activities, and all meals from Friday morning through Sunday Morning. Activities include top rope rock climbing, an epic zipline, hiking, star gazing, and lots of good time with good people.</p>
                 <p>Once you've registered, you'll receive a Venmo/Zelle request to pay which will officially secure your spot!</p>
@@ -85,37 +85,15 @@
     <section id="activities" class="activities">
         <div class="container">
             <h2>Activities</h2>
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <div class="activity-icon">🥾</div>
-                    <h3>Hiking</h3>
-                    <p>Explore scenic trails through otherworldly rock formations and desert landscapes. From easy walks to challenging hikes, there's something for everyone.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🔭</div>
-                    <h3>Stargazing</h3>
-                    <p>Experience one of the darkest skies in Southern California. Perfect for astronomy enthusiasts and anyone who wants to marvel at the night sky.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">📸</div>
-                    <h3>Photography</h3>
-                    <p>Capture stunning shots of the unique Joshua trees, desert sunsets, and star trails. A paradise for photographers of all skill levels.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🧗</div>
-                    <h3>Rock Climbing</h3>
-                    <p>Joshua Tree is world-famous for rock climbing. Test your skills on world-class climbing routes or enjoy bouldering.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🌅</div>
-                    <h3>Sunrise & Sunset</h3>
-                    <p>Witness breathtaking desert sunrises and sunsets. Find the perfect spot to watch the sky transform with vibrant colors.</p>
-                </div>
-                <div class="activity-card">
-                    <div class="activity-icon">🏜️</div>
-                    <h3>Desert Exploration</h3>
-                    <p>Discover hidden desert wonders, wildlife, and the unique flora and fauna of Joshua Tree. Learn about the ecosystem and geology.</p>
-                </div>
+            <div class="activities-card">
+                <ul class="activity-list">
+                    <li><span class="activity-emoji">🥾</span> Hiking</li>
+                    <li><span class="activity-emoji">🧗</span> Rock Climbing</li>
+                    <li><span class="activity-emoji">🪂</span> Zipline</li>
+                    <li><span class="activity-emoji">🔭</span> Stargazing</li>
+                    <li><span class="activity-emoji">🏜️</span> Desert Exploration</li>
+                    <li><span class="activity-emoji">⚾</span> Group Games</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -123,78 +101,75 @@
     <!-- Packing List -->
     <section id="packing" class="packing">
         <div class="container">
-            <h2>Packing Checklist</h2>
+            <h2>Packing List</h2>
             <div class="packing-grid">
-                <div class="packing-category">
-                    <h3>🎒 Essentials</h3>
-                    <ul>
-                        <li><input type="checkbox"> Tent & sleeping bag</li>
-                        <li><input type="checkbox"> Sleeping pad</li>
-                        <li><input type="checkbox"> Camping stove & fuel</li>
-                        <li><input type="checkbox"> Cookware & utensils</li>
-                        <li><input type="checkbox"> Flashlight or headlamp</li>
-                        <li><input type="checkbox"> First aid kit</li>
-                        <li><input type="checkbox"> Water bottles (at least 3L)</li>
-                    </ul>
-                </div>
-
                 <div class="packing-category">
                     <h3>👕 Clothing</h3>
                     <ul>
-                        <li><input type="checkbox"> Light, breathable shirts</li>
-                        <li><input type="checkbox"> Shorts & lightweight pants</li>
-                        <li><input type="checkbox"> Warm layers (sweater/jacket)</li>
-                        <li><input type="checkbox"> Socks & comfortable hiking boots</li>
-                        <li><input type="checkbox"> Hat & sunglasses</li>
-                        <li><input type="checkbox"> Underwear & socks</li>
-                        <li><input type="checkbox"> Pajamas</li>
+                        <li>- Hat (important!) – full brim is better</li>
+                        <li>- Shorts (extra if you plan on sliding down rocks)</li>
+                        <li>- Long, loose-fitting pants (hiking, scrambling, chilly nights)</li>
+                        <li>- T-shirts / shirts</li>
+                        <li>- Windbreaker or light jacket</li>
+                        <li>- Extra underwear (for after those death-defying climbs)</li>
+                        <li>- Boots / sandals / socks</li>
+                        <li>- Trash bag for dirty clothes</li>
                     </ul>
                 </div>
 
                 <div class="packing-category">
-                    <h3>☀️ Sun & Weather Protection</h3>
+                    <h3>🧼 Keeping Clean & Healthy</h3>
                     <ul>
-                        <li><input type="checkbox"> High SPF sunscreen</li>
-                        <li><input type="checkbox"> Lip balm with SPF</li>
-                        <li><input type="checkbox"> Rain jacket or poncho</li>
-                        <li><input type="checkbox"> Desert scarf or bandana</li>
-                        <li><input type="checkbox"> Aloe vera gel</li>
+                        <li>- Cooler with your personal drinks + extra snacks (meals included with fee)</li>
+                        <li>- At least 1 gallon of water per person per day</li>
+                        <li>- Freezer bottled water for cooler (drink as they thaw)</li>
+                        <li>- Washcloth / hand towel (wipe down with wet washcloth at night)</li>
+                        <li>- Toothbrush / toothpaste / floss</li>
+                        <li>- Brush / comb (or just a hat)</li>
+                        <li>- Deodorant (please)</li>
+                        <li>- Sunscreen (important!)</li>
+                        <li>- Medication / aspirin (there are bees at camp)</li>
+                        <li>- Lip balm (Chapstick) with sunscreen (important!)</li>
+                        <li>- Band-Aids</li>
+                        <li>- Tweezers (for cactus needles)</li>
+                        <li>- Personal first aid kit (there will also be a first aid station)</li>
                     </ul>
                 </div>
 
                 <div class="packing-category">
-                    <h3>🍽️ Food & Water</h3>
+                    <h3>😴 Sleeping Well</h3>
                     <ul>
-                        <li><input type="checkbox"> Trail snacks (nuts, bars)</li>
-                        <li><input type="checkbox"> Breakfast items</li>
-                        <li><input type="checkbox"> Dinner & lunch supplies</li>
-                        <li><input type="checkbox"> Coffee/tea & filters</li>
-                        <li><input type="checkbox"> Electrolyte drinks</li>
-                        <li><input type="checkbox"> Water purification tablets</li>
+                        <li>- Sleeping bag and good thick pad (foam better than inflatable)</li>
+                        <li>- Pillow</li>
+                        <li>- Cot (if sleeping under the stars – gets you off the ground and away from “visitors”)</li>
+                        <li>- Tent and hammer for stakes (long metal stakes recommended – sand and rocks)</li>
+                        <li>- Ear plugs (highly recommended – quiets wind and snoring)</li>
                     </ul>
                 </div>
 
                 <div class="packing-category">
-                    <h3>📱 Personal Items</h3>
+                    <h3>🧗 Climbing (Optional)</h3>
                     <ul>
-                        <li><input type="checkbox"> Medications & prescriptions</li>
-                        <li><input type="checkbox"> Toiletries (biodegradable soap)</li>
-                        <li><input type="checkbox"> Toothbrush & toothpaste</li>
-                        <li><input type="checkbox"> Phone & charger</li>
-                        <li><input type="checkbox"> Camera & batteries</li>
-                        <li><input type="checkbox"> ID & money</li>
+                        <li>- Bicycle or climbing helmet (required for all kids climbing)</li>
+                        <li>- Climbing shoes and harness (limited sizes available to borrow)</li>
                     </ul>
                 </div>
 
                 <div class="packing-category">
-                    <h3>🌟 Optional Gear</h3>
+                    <h3>📌 Miscellaneous</h3>
                     <ul>
-                        <li><input type="checkbox"> Telescope or binoculars</li>
-                        <li><input type="checkbox"> Field guides (birds, plants)</li>
-                        <li><input type="checkbox"> Rope & carabiners</li>
-                        <li><input type="checkbox"> Camping pillow</li>
-                        <li><input type="checkbox"> Portable speaker</li>
-                        <li><input type="checkbox"> Books or games</li>
+                        <li>- Hydration pack (important!) or small day pack with water bottle</li>
+                        <li>- Coffee mug</li>
+                        <li>- Binoculars</li>
+                        <li>- Telescope</li>
+                        <li>- Maps and compass</li>
+                        <li>- Sunglasses (important!)</li>
+                        <li>- Headlamp (important!) (bring extra batteries)</li>
+                        <li>- Camp chair (for sitting around the fire)</li>
+                        <li>- Games / books / Jr. Ranger booklet (pick up at Ranger Station – complete for badge)</li>
+                        <li>- $30 per vehicle National Park entrance fee (pay at gate or buy annual pass for $55)</li>
+                        <li>- Baseball glove (for the Sandlot game)</li>
+                        <li>- No electronic devices (no cell reception at camp)</li>
                     </ul>
                 </div>
             </div>
@@ -224,49 +199,94 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="experience">Camping Experience *</label>
-                    <select id="experience" name="experience" required>
-                        <option value="">Select one</option>
-                        <option value="beginner">Beginner</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="advanced">Advanced</option>
+                    <label for="arrivalTime">Estimated Arrival Time</label>
+                    <select id="arrivalTime" name="arrivalTime">
+                        <option value="">Select arrival time</option>
+                        <option value="Thursday Morning">Thursday Morning</option>
+                        <option value="Thursday Afternoon">Thursday Afternoon</option>
+                        <option value="Thursday Evening">Thursday Evening</option>
+                        <option value="Friday Morning">Friday Morning</option>
+                        <option value="Friday Afternoon">Friday Afternoon</option>
+                        <option value="Friday Evening">Friday Evening</option>
+                        <option value="Saturday Anytime">Saturday Anytime</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="activities">Which activities interest you? (Select all that apply)</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="activities" value="hiking"> Hiking
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="activities" value="stargazing"> Stargazing
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="activities" value="photography"> Photography
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="activities" value="climbing"> Rock Climbing
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="activities" value="relaxing"> Just Relaxing
-                        </label>
+                    <label for="additionalCampers">Number of Additional Campers (up to 5)</label>
+                    <select id="additionalCampers" name="additionalCampers">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+
+                <div id="camper1" class="camper-fields" style="display: none;">
+                    <h4>Additional Camper 1</h4>
+                    <div class="form-group">
+                        <label for="camper1Name">First Name</label>
+                        <input type="text" id="camper1Name" name="camper1Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="camper1Age">Age</label>
+                        <input type="number" id="camper1Age" name="camper1Age" min="1" max="100">
+                    </div>
+                </div>
+
+                <div id="camper2" class="camper-fields" style="display: none;">
+                    <h4>Additional Camper 2</h4>
+                    <div class="form-group">
+                        <label for="camper2Name">First Name</label>
+                        <input type="text" id="camper2Name" name="camper2Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="camper2Age">Age</label>
+                        <input type="number" id="camper2Age" name="camper2Age" min="1" max="100">
+                    </div>
+                </div>
+
+                <div id="camper3" class="camper-fields" style="display: none;">
+                    <h4>Additional Camper 3</h4>
+                    <div class="form-group">
+                        <label for="camper3Name">First Name</label>
+                        <input type="text" id="camper3Name" name="camper3Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="camper3Age">Age</label>
+                        <input type="number" id="camper3Age" name="camper3Age" min="1" max="100">
+                    </div>
+                </div>
+
+                <div id="camper4" class="camper-fields" style="display: none;">
+                    <h4>Additional Camper 4</h4>
+                    <div class="form-group">
+                        <label for="camper4Name">First Name</label>
+                        <input type="text" id="camper4Name" name="camper4Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="camper4Age">Age</label>
+                        <input type="number" id="camper4Age" name="camper4Age" min="1" max="100">
+                    </div>
+                </div>
+
+                <div id="camper5" class="camper-fields" style="display: none;">
+                    <h4>Additional Camper 5</h4>
+                    <div class="form-group">
+                        <label for="camper5Name">First Name</label>
+                        <input type="text" id="camper5Name" name="camper5Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="camper5Age">Age</label>
+                        <input type="number" id="camper5Age" name="camper5Age" min="1" max="100">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="dietary">Dietary Restrictions/Preferences</label>
                     <textarea id="dietary" name="dietary" rows="3" placeholder="e.g., Vegetarian, gluten-free, allergies..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Additional Comments or Questions</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Tell us anything else we should know..."></textarea>
-                </div>
-
-                <div class="form-group checkbox-label">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">I agree to the camping guidelines and understand the risks involved *</label>
                 </div>
 
                 <button type="submit" class="submit-button">Complete Registration</button>
@@ -287,6 +307,8 @@
             <p>🏜️ Adventure awaits in the desert 🏜️</p>
         </div>
     </footer>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
