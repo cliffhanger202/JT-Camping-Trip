@@ -386,26 +386,31 @@ body {
 
 /* Packing Section */
 .packing {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background: white;
 }
 
 .packing h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: var(--dark-color);
+}
+
+.download-link {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .packing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .packing-category {
     background: linear-gradient(135deg, #f9f7f4, white);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 10px;
     border-left: 5px solid var(--secondary-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -413,7 +418,7 @@ body {
 
 .packing-category h3 {
     font-size: 1.3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--dark-color);
 }
 
@@ -422,7 +427,7 @@ body {
 }
 
 .packing-category li {
-    padding: 0.5rem 0;
+    padding: 0.375rem 0;
     color: #666;
     display: flex;
     align-items: center;
@@ -639,6 +644,10 @@ body {
     .activities-grid,
     .packing-grid {
         gap: 1.5rem;
+    }
+
+    .packing-grid {
+        grid-template-columns: 1fr;
     }
 
     .registration-form {
