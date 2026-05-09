@@ -472,6 +472,11 @@ body {
     color: #333;
 }
 
+.registration-text {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
 .form-group {
     margin-bottom: 1.8rem;
 }
